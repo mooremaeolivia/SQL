@@ -1,0 +1,31 @@
+--Create a clothing store database.
+
+CREATE TABLE storefront (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, popularity INTEGER);
+
+INSERT INTO storefront VALUES (1, "shirt", "casual", 19.99, 76);
+INSERT INTO storefront VALUES (2, "sock", "underwear", 9.99, 47);
+INSERT INTO storefront VALUES (3, "headband", "athletic", 14.99, 23);
+INSERT INTO storefront VALUES (4, "shorts", "athletic", 29.99, 68);
+INSERT INTO storefront VALUES (5, "mittens", "seasonal", 18.50, 13);
+INSERT INTO storefront VALUES (6, "lingerie", "underwear", 69.99, 35);
+INSERT INTO storefront VALUES (7, "hat", "accessory", 19.99, 44);
+INSERT INTO storefront VALUES (8, "dress", "casual", 39.99, 18);
+INSERT INTO storefront VALUES (9, "jewlery", "accessory", 45.75, 33);
+INSERT INTO storefront VALUES (10, "swimsuit", "seasonal", 35.00, 85);
+INSERT INTO storefront VALUES (11, "jeans", "casual", 38.88, 66);
+INSERT INTO storefront VALUES (12, "sweatpants", "lounge", 25.25, 45);
+INSERT INTO storefront VALUES (13, "sleepwear", "lounge", 25.99, 29);
+INSERT INTO storefront VALUES (14, "scarf", "seasonal", 41.00, 95);
+INSERT INTO storefront VALUES (15, "crewneck", "casual", 55.99, 7);
+
+--display the database ordered by price.
+SELECT * FROM storefront ORDER BY price asc;
+
+--display only the items and prices.
+SELECT item, price FROM storefront ORDER BY price asc; 
+
+--what is the average price of items in the casual section?
+SELECT AVG(price) FROM storefront WHERE section="casual";
+
+--what are the 5 most popular items?
+SELECT item, price, popularity FROM storefront ORDER BY popularity desc limit 5;

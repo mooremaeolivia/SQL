@@ -838,8 +838,8 @@ ORDER BY AVG(Attack) asc;
 --which pokemon have one type and which have two?
 SELECT name, Type_1, Type_2,
     CASE
-        WHEN Type_2 = "Normal","Fire","Water","Grass","Electric","Ice","Fighting","Poison","Ground","Flying","Psychic","Bug","Rock","Ghost","Dark","Dragon","Steel","Fairy" THEN "two_type"
-        WHEN Type_2 = "NULL" THEN "one_type"
+        WHEN Type_2 IN ("Normal","Fire","Water","Grass","Electric","Ice","Fighting","Poison","Ground","Flying","Psychic","Bug","Rock","Ghost","Dark","Dragon","Steel","Fairy") THEN "two_type"
+        ELSE "one_type"
     END AS "one_two_type"
 FROM pokemon;
 

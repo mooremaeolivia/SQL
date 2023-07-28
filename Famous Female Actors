@@ -1,0 +1,48 @@
+CREATE TABLE actor (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+
+INSERT INTO actor (fullname, age) VALUES ("Jennifer Lawrence", "32");
+INSERT INTO actor (fullname, age) VALUES ("Emma Watson", "33");
+INSERT INTO actor (fullname, age) VALUES ("Jennifer Aniston", "54");
+INSERT INTO actor (fullname, age) VALUES ("Sofía Vergara", "51");
+INSERT INTO actor (fullname, age) VALUES ("Ali Wong", "41");
+INSERT INTO actor (fullname, age) VALUES ("Michaela Coel", "35");
+
+CREATE TABLE movie (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    title TEXT);
+    
+INSERT INTO movie (person_id, title) VALUES (1, "Don't Look Up");
+INSERT INTO movie (person_id, title) VALUES (1, "Silver Linings Playbook");
+INSERT INTO movie (person_id, title) VALUES (2, "The Perks of Being A Wallflower");
+INSERT INTO movie(person_id, title) VALUES (2, "Harry Potter");
+INSERT INTO movie (person_id, title) VALUES (3, "We're The Millers");
+INSERT INTO movie (person_id, title) VALUES (4, "Strays");
+
+
+CREATE TABLE tv_show (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    title TEXT);
+    
+INSERT INTO tv_show (person_id, title) VALUES (3, "Friends");
+INSERT INTO tv_show (person_id, title) VALUES (4, "Modern Family");
+INSERT INTO tv_show (person_id, title) VALUES (5, "Tuca & Bertie");
+INSERT INTO tv_show (person_id, title) VALUES (5, "BEEF");
+INSERT INTO tv_show (person_id, title) VALUES (6, "I May Destroy You");
+INSERT INTO tv_show (person_id, title) VALUES (6, "Chewing Gum");
+
+
+CREATE TABLE origin (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    country TEXT);
+    
+INSERT INTO origin (person_id, country) VALUES (1, "United States");
+INSERT INTO origin (person_id, country) VALUES (2, "France");
+INSERT INTO origin (person_id, country) VALUES (3, "United States");
+INSERT INTO origin (person_id, country) VALUES (4, "Columbia");
+INSERT INTO origin (person_id, country) VALUES (5, "United States");
+INSERT INTO origin (person_id, country) VALUES (6, "United Kingdom");
+
+
+SELECT

@@ -11,6 +11,7 @@ INSERT INTO actor (fullname, age) VALUES ("Sofía Vergara", "51");
 INSERT INTO actor (fullname, age) VALUES ("Ali Wong", "41");
 INSERT INTO actor (fullname, age) VALUES ("Michaela Coel", "35");
 
+
 CREATE TABLE movie (id INTEGER PRIMARY KEY AUTOINCREMENT,
     person_id INTEGER,
     title TEXT);
@@ -47,4 +48,39 @@ INSERT INTO origin (person_id, country) VALUES (5, "United States");
 INSERT INTO origin (person_id, country) VALUES (6, "United Kingdom");
 
 
-SELECT
+CREATE table friends (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person1_id INTEGER,
+    person2_id INTEGER);
+
+INSERT INTO friends (person1_id, person2_id)
+    VALUES (1, 6);
+INSERT INTO friends (person1_id, person2_id)
+    VALUES (2, 5);
+INSERT INTO friends (person1_id, person2_id)
+    VALUES (3, 4);
+
+
+--display actors with their movie titles.
+SELECT actor.fullname, movie.title AS "movie"
+    FROM actor
+    JOIN movie
+    ON actor.id = movie.person_id;
+
+--display actors with their tv show titles.
+SELECT actor.fullname, tv_show.title AS "tv_show"
+    FROM actor
+    JOIN tv_show
+    ON actor.id = tv_show.person_id;
+
+--display actors with their country of origin. 
+SELECT actor.fullname, origin.country
+    FROM actor
+    JOIN origin
+    ON actor.id = origin.person_id;
+
+--display the names of each pair of actor friends.
+SELECT a.fullname, b.fullname FROM friends
+    JOIN actor a
+    ON friends.person1_id = a.id
+    JOIN actor b
+    ON friends.person2_id = b.id;

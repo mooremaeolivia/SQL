@@ -1,0 +1,54 @@
+/* In this SQL, I'm using SQLiteStudio to query a database with multiple tables in it to quantify statistics about customer and order data. */
+
+--how many orders were placed in January? 
+SELECT COUNT(orderID)
+    FROM BIT_DB.JanSales
+    WHERE length(orderID) = 6
+    AND orderID <> 'Order ID';
+
+--how many of those orders were for an iPhone? 
+SELECT COUNT(orderID), Product
+    FROM BIT_DB.JanSales
+    WHERE Product ='iPhone'
+    AND length(orderID) = 6
+    AND orderID <> 'Order ID';
+
+--select the customer account numbers for all the orders that were placed in February. 
+SELECT DISTINCT acctnum
+    FROM BIT_DB.customers cust
+    INNER JOIN BIT_DB.FebSales feb
+    ON cust.order_id = feb.orderID
+    
+    WHERE length(orderID) = 6
+    AND orderID <> 'Order ID';
+
+--which product was the cheapest one sold in January, and what was the price? 
+SELECT DISTINCT Product, MIN(price)
+    FROM BIT_DB.JanSales
+    GROUP BY Product, price
+    ORDER BY price ASC
+    LIMIT 1;
+
+/* or simpler */
+
+SELECT DISTINCT Product, price 
+  FROM BIT_DB.JanSales 
+  ORDER BY price ASC LIMIT 1
+
+--what is the total revenue for each product sold in January?
+SELECT Product, price*SUM(quantity) AS "Revenue"
+    FROM BIT_DB.JanSales
+    GROUP BY Product;
+
+--which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+SELECT Product, SUM(quantity), price*SUM(quantity) AS "Revenue"
+    FROM BIT_DB.FebSales
+    WHERE location = "548 Lincoln St, Seattle, WA 98101"
+    GROUP BY Product;
+
+--how many customers ordered more than 2 products at a time, and what was the average amount spent for those customers?
+SELECT COUNT(custacctnum), price*AVG(
+    FROM BIT_DB.customers cust
+    WHERE 
+    JOIN BIT_DB.FebSales feb
+

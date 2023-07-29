@@ -47,8 +47,11 @@ SELECT Product, SUM(quantity), price*SUM(quantity) AS "Revenue"
     GROUP BY Product;
 
 --how many customers ordered more than 2 products at a time, and what was the average amount spent for those customers?
-SELECT COUNT(custacctnum), price*AVG(
+SELECT COUNT(DISTINCT cust.acctnum), AVG(price*quantity)
     FROM BIT_DB.customers cust
-    WHERE 
-    JOIN BIT_DB.FebSales feb
+    RIGHT JOIN BIT_DB.FebSales feb
+    ON cust.order_id = feb.orderID
+    WHERE feb.quantity>2
+    AND length(orderID) = 6
+    AND orderID <> 'Order ID';
 

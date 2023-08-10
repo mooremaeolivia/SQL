@@ -1,0 +1,150 @@
+--query all columns (attributes) for every row in the CITY table.
+SELECT * FROM city;
+
+--query all columns for a city in CITY with the ID 1661.
+SELECT * FROM city
+WHERE ID = 1661;
+
+--query all attributes of every Japanese city in the CITY table.
+SELECT * FROM city
+WHERE countrycode = 'JPN';
+
+--query the names of all the Japanese cities in the CITY table.
+SELECT name
+FROM city
+WHERE countrycode = 'JPN';
+
+--query all columns for all American cities in the CITY table with populations larger than 100000.
+SELECT * FROM city
+WHERE countrycode = 'USA'
+AND population > 100000;
+
+-query the NAME field for all American cities in the CITY table with populations larger than 120000.
+SELECT name 
+FROM city
+WHERE countrycode = 'USA'
+AND population > 120000;
+
+========================================================
+
+--query a list of CITY and STATE from the STATION table.
+SELECT city, state
+FROM station;
+
+--query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+SELECT DISTINCT city
+FROM station
+WHERE id % 2 = 0;
+
+--find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+SELECT COUNT(city) - COUNT(DISTINCT city)
+FROM station;
+
+--query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there 
+  is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+SELECT city, LENGTH(city)
+FROM station
+ORDER BY LENGTH(city) DESC, city 
+LIMIT 1;
+
+SELECT city, LENGTH(city)
+FROM station
+ORDER BY LENGTH(city) ASC, city
+LIMIT 1;
+
+--query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+SELECT DISTINCT(city)
+FROM station
+WHERE city LIKE 'A%' 
+OR city LIKE 'E%' 
+OR city LIKE 'I%' 
+OR city LIKE 'O%' 
+OR city LIKE 'U%';
+
+--query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+SELECT DISTINCT(city)
+FROM station
+WHERE city LIKE '%A' 
+OR city LIKE '%E' 
+OR city LIKE '%I' 
+OR city LIKE '%O' 
+OR city LIKE '%U';
+
+--query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+SELECT DISTINCT(city)
+FROM station
+WHERE 
+(city LIKE '%A' 
+OR city LIKE '%E' 
+OR city LIKE '%I' 
+OR city LIKE '%O' 
+OR city LIKE '%U')
+AND 
+(city LIKE 'A%' 
+OR city LIKE 'E%' 
+OR city LIKE 'I%' 
+OR city LIKE 'O%' 
+OR city LIKE 'U%');
+
+--query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT(city)
+FROM station
+WHERE city NOT LIKE 'A%' 
+AND city NOT LIKE 'E%' 
+AND city NOT LIKE 'I%' 
+AND city NOT LIKE 'O%' 
+AND city NOT LIKE 'U%';
+
+--query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT(city)
+FROM station
+WHERE city NOT LIKE '%A' 
+AND city NOT LIKE '%E' 
+AND city NOT LIKE '%I' 
+AND city NOT LIKE '%O' 
+AND city NOT LIKE '%U';
+
+--query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT(city)
+FROM station
+WHERE 
+(city NOT LIKE '%A' 
+AND city NOT LIKE '%E' 
+AND city NOT LIKE '%I' 
+AND city NOT LIKE '%O' 
+AND city NOT LIKE '%U')
+OR
+(city NOT LIKE 'A%' 
+AND city NOT LIKE 'E%' 
+AND city NOT LIKE 'I%' 
+AND city NOT LIKE 'O%' 
+AND city NOT LIKE 'U%');
+
+--query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT(city)
+FROM station
+WHERE 
+(city NOT LIKE '%A' 
+AND city NOT LIKE '%E' 
+AND city NOT LIKE '%I' 
+AND city NOT LIKE '%O' 
+AND city NOT LIKE '%U')
+AND
+(city NOT LIKE 'A%' 
+AND city NOT LIKE 'E%' 
+AND city NOT LIKE 'I%' 
+AND city NOT LIKE 'O%' 
+AND city NOT LIKE 'U%');
+
+========================================================
+
+--query the Name of any student in STUDENTS who scored higher than 75 Marks. Order your output by the last three characters of each name. If two or more 
+  students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+
+
+
+
+
+
+

@@ -4,7 +4,9 @@
 
 
 --show customers (their full names, customer ID, and country) who are not in the US. 
-
+SELECT customerid, firstname, lastname, country
+FROM customers
+WHERE country <> 'USA';
 
 --show only the customers from Brazil.
 

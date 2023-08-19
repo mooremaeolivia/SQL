@@ -100,7 +100,10 @@ WHERE emp.Title = 'Sales Support Agent'
 GROUP BY emp.FirstName;
 
 --find the album that is the longest by time in minutes rounded to the nearest whole integer.
-
+SELECT alb.Title, FLOOR(((SUM(tra.Milliseconds))/1000)/60)
+FROM chinook.tracks tra
+INNER JOIN chinook.albums alb ON tra.AlbumId = alb.AlbumId
+GROUP BY alb.Title;
 
 --which album made the most sales?
 

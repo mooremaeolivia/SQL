@@ -51,7 +51,31 @@ WHERE countrycode = 'JPN';
 
 --query the difference between the maximum and minimum populations in CITY.
 SELECT MAX(population) - MIN(population)
-FROM city
+FROM city;
+
+--given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+  note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+SELECT SUM(cit.population)
+FROM city cit
+LEFT JOIN country co
+ON cit.countrycode = co.code
+WHERE co.continent = 'Asia';
+
+--given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
+  note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+SELECT cit.name
+FROM city cit
+LEFT JOIN country co
+ON cit.countrycode = co.code
+WHERE co.continent = 'Africa';
+
+--given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city 
+  populations (CITY.Population) rounded down to the nearest integer. note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+SELECT co.continent, FLOOR(AVG(cit.population))
+FROM city cit
+INNER JOIN country co
+ON cit.countrycode = co.code
+GROUP BY co.continent;
 
 ========================================================
 
@@ -223,6 +247,8 @@ SELECT name
 FROM students
 WHERE marks > 75
 ORDER BY right(name,3), ID ASC;
+
+
 
 ========================================================
 

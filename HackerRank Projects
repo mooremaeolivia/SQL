@@ -248,8 +248,6 @@ FROM students
 WHERE marks > 75
 ORDER BY right(name,3), ID ASC;
 
-
-
 ========================================================
 
 --write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
@@ -264,11 +262,4 @@ FROM employee
 WHERE salary > 2000
 AND months < 10
 ORDER BY employee_id ASC;
-
-========================================================
-
---
-
-
-
 

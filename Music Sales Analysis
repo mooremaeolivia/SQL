@@ -1,0 +1,50 @@
+/* zip file of this database found here: https://cdn.fs.teachablecdn.com/dRmwOLQsS22FVFbXfh3x
+   data queried in SQLiteStudio */
+
+
+
+--show customers (their full names, customer ID, and country) who are not in the US. 
+
+
+--show only the customers from Brazil.
+
+
+--find the Invoices of customers who are from Brazil. the resulting table should show the customer's full name, Invoice ID, 
+  Date of the invoice, and billing country.
+
+
+--show the Employees who are Sales Agents.
+
+
+--find a unique/distinct list of billing countries from the Invoice table.
+
+
+--provide a query that shows the invoices associated with each sales agent. 
+  the resulting table should include the Sales Agent's full name.
+
+
+--show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers.
+
+
+--how many Invoices were there in 2009?
+
+
+--what are the total sales for 2009?
+
+
+--write a query that includes the purchased track name with each invoice line ID.
+
+
+--write a query that includes the purchased track name AND artist name with each invoice line ID.
+
+
+--provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
+
+
+--show the total sales made by each sales agent.
+
+
+--which sales agent made the most dollars in sales in 2009?
+
+
+--

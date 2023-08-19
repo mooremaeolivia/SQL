@@ -91,4 +91,25 @@ JOIN chinook.media_types med ON tra.MediaTypeId = med.MediaTypeId;
  GROUP BY emp.FirstName
  ORDER BY (ROUND(SUM(inv.Total),2)) DESC LIMIT 1;
 
---
+--how many customers has each sales agent helped? include the date each sales agent was hired.
+SELECT emp.FirstName, emp.LastName, COUNT(inv.CustomerId), emp.HireDate
+FROM chinook.employees emp
+JOIN chinook.customers cust ON emp.EmployeeId = cust.SupportRepId
+JOIN chinook.invoices inv ON inv.CustomerId = cust.CustomerId
+WHERE emp.Title = 'Sales Support Agent'
+GROUP BY emp.FirstName;
+
+--find the album that is the longest by time in minutes rounded to the nearest whole integer.
+
+
+--which album made the most sales?
+
+
+--what artist brought in the most revenue?
+
+
+--which playlist has the most R&B/Soul on it?
+
+
+--what is the most common media type?
+

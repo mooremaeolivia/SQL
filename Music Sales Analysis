@@ -105,14 +105,29 @@ FROM chinook.tracks tra
 INNER JOIN chinook.albums alb ON tra.AlbumId = alb.AlbumId
 GROUP BY alb.Title;
 
---which album made the most sales?
-
-
 --what artist brought in the most revenue?
+SELECT art.Name AS 'artist', ROUND(SUM(inv.Total),2) AS 'total revenue'
+FROM chinook.invoices inv
+JOIN chinook.invoice_items invi ON inv.InvoiceId = invi.InvoiceId
+JOIN chinook.tracks tra ON tra.TrackId = invi.TrackId
+JOIN chinook.albums alb ON tra.AlbumId = alb.AlbumId
+JOIN chinook.artists art ON alb.ArtistId = art.ArtistId
+GROUP BY art.Name
+ORDER BY SUM(inv.Total) DESC;
 
-
---which playlist has the most R&B/Soul on it?
-
+--what album brought in the most revenue?
+SELECT alb.Title AS 'album', ROUND(SUM(inv.Total),2) AS 'total revenue'
+FROM chinook.invoices inv
+JOIN chinook.invoice_items invi ON inv.InvoiceId = invi.InvoiceId
+JOIN chinook.tracks tra ON tra.TrackId = invi.TrackId
+JOIN chinook.albums alb ON tra.AlbumId = alb.AlbumId
+JOIN chinook.artists art ON alb.ArtistId = art.ArtistId
+GROUP BY alb.Title
+ORDER BY SUM(inv.Total) DESC;
 
 --what is the most common media type?
-
+SELECT med.Name AS 'media type', SUM(tra.MediaTypeId) AS 'total tracks'
+FROM chinook.tracks tra
+LEFT JOIN chinook.media_types med ON tra.MediaTypeId = med.MediaTypeId
+GROUP BY tra.MediaTypeId
+ORDER BY 'total tracks' DESC LIMIT 1;

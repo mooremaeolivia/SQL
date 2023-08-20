@@ -99,8 +99,8 @@ JOIN chinook.invoices inv ON inv.CustomerId = cust.CustomerId
 WHERE emp.Title = 'Sales Support Agent'
 GROUP BY emp.FirstName;
 
---find the album that is the longest by time in minutes rounded to the nearest whole integer.
-SELECT alb.Title, FLOOR(((SUM(tra.Milliseconds))/1000)/60)
+--order each album by time in minutes rounded to the nearest whole integer.
+SELECT alb.Title AS 'album', FLOOR(((SUM(tra.Milliseconds))/1000)/60) AS 'minutes'
 FROM chinook.tracks tra
 INNER JOIN chinook.albums alb ON tra.AlbumId = alb.AlbumId
 GROUP BY alb.Title;
@@ -113,7 +113,7 @@ JOIN chinook.tracks tra ON tra.TrackId = invi.TrackId
 JOIN chinook.albums alb ON tra.AlbumId = alb.AlbumId
 JOIN chinook.artists art ON alb.ArtistId = art.ArtistId
 GROUP BY art.Name
-ORDER BY SUM(inv.Total) DESC;
+ORDER BY SUM(inv.Total) DESC LIMIT 1;
 
 --what album brought in the most revenue?
 SELECT alb.Title AS 'album', ROUND(SUM(inv.Total),2) AS 'total revenue'
@@ -123,7 +123,7 @@ JOIN chinook.tracks tra ON tra.TrackId = invi.TrackId
 JOIN chinook.albums alb ON tra.AlbumId = alb.AlbumId
 JOIN chinook.artists art ON alb.ArtistId = art.ArtistId
 GROUP BY alb.Title
-ORDER BY SUM(inv.Total) DESC;
+ORDER BY SUM(inv.Total) DESC LIMIT 1;
 
 --what is the most common media type?
 SELECT med.Name AS 'media type', SUM(tra.MediaTypeId) AS 'total tracks'

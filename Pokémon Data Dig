@@ -1,4 +1,4 @@
-*/ Choose one of the curated data sets, and use advanced SELECT queries to discover things about the data. */
+.*/ Choose one of the curated data sets, and use advanced SELECT queries to discover things about the data. */
 
 CREATE TABLE pokemon(
   Number     INTEGER,

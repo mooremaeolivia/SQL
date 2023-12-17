@@ -26,7 +26,7 @@ SELECT * FROM storefront ORDER BY price asc;
 SELECT item, price FROM storefront ORDER BY price asc; 
 
 --what is the average price of items in the casual section?
-SELECT AVG(price) FROM storefront WHERE section="casual";
+SELECT AVG(price) FROM storefront WHERE section="casual"; .
 
 --what are the 5 most popular items?
 SELECT item, price, popularity FROM storefront ORDER BY popularity desc limit 5;

@@ -1,4 +1,4 @@
- /* For this project, I downloaded Spotify data (.csv) from Kaggle and created the following table to insert that Spotify data into.
+. /* For this project, I downloaded Spotify data (.csv) from Kaggle and created the following table to insert that Spotify data into.
     Then, I explored the data using the following SQL. */ 
 
 #Creating the table: 

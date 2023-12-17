@@ -1,4 +1,4 @@
-.--query all columns (attributes) for every row in the CITY table.
+--query all columns (attributes) for every row in the CITY table.
 SELECT * FROM city;
 
 --query all columns for a city in CITY with the ID 1661.

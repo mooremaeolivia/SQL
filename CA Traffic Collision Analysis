@@ -1,3 +1,3 @@
-# For this project, I downloaded California Traffic Collision data (.csv) from [Kaggle](https://www.kaggle.com/datasets/alexgude/california-traffic-collision-data-from-switrs) and explored the data using the following queries in SQLite.
+For this project, I downloaded California Traffic Collision data (.csv) from [Kaggle](https://www.kaggle.com/datasets/alexgude/california-traffic-collision-data-from-switrs) and explored the data using the following queries in SQLite.
 
 # https://www.kaggle.com/datasets/alexgude/california-traffic-collision-data-from-switrs

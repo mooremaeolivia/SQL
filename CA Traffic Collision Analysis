@@ -1,4 +1,16 @@
-For this project, I downloaded California Traffic Collision data (.csv) from 
-[Kaggle](https://www.kaggle.com/datasets/alexgude/california-traffic-collision-data-from-switrs) and explored the data using the following queries in SQLite.
+# For this project, I downloaded California Traffic Collision data (.csv) from Kaggle and explored the data using the following queries in SQLite.
 
-# https://www.kaggle.com/datasets/alexgude/california-traffic-collision-data-from-switrs
+--what was the primary violation for a fatal accident?
+SELECT COUNT(DISTINCT pcf_violation) AS "total_occurences", pcf_violation_category
+FROM switrs.collisions
+WHERE collision_severity = 'fatal'
+GROUP BY pcf_violation_category
+ORDER BY total_occurences DESC;
+
+--of those collisions that were fatal, what is the average age of the victim?
+SELECT AVG(victim_age)
+FROM switrs.victims 
+WHERE victim_degree_of_injury = 'killed'
+AND victim_age IS NOT NULL;
+
+--
